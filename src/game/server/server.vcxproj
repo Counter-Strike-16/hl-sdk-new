@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B160788D-483E-430C-BD1B-A89E8C2FB9C8}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>server</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>hl</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>hl</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;QUIVER;VOXEL;QUAKE2;VALVE_DLL;CLIENT_WEAPONS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.\;..\;.\hl;..\game\shared;..\game\shared\hl;..\game\shared\pm_shared;..\..\game\shared;..\..\game\shared\pm_shared;..\..\common;..\..\engine;..\..\public;..\..\public\steam;..\shared;..\shared\hl;..\shared\pm_shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4018;4258;4996;4703;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>hl.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>if exist "$(TargetPath)" copy "$(TargetPath)" "..\..\..\game\mod\dlls\$(TargetFileName)"</Command>
+      <Message>..\..\..\game\mod\dlls</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;QUIVER;VOXEL;QUAKE2;VALVE_DLL;CLIENT_WEAPONS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.\;..\;.\hl;..\game\shared;..\game\shared\hl;..\game\shared\pm_shared;..\..\game\shared;..\..\game\shared\pm_shared;..\..\common;..\..\engine;..\..\public;..\..\public\steam;..\shared;..\shared\hl;..\shared\pm_shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4018;4258;4996;4703;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>hl.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>if exist "$(TargetPath)" copy "$(TargetPath)" "..\..\..\game\mod\dlls\$(TargetFileName)"</Command>
+      <Message>..\..\..\game\mod\dlls</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\shared\gamestringpool.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_crossbow.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_crowbar.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_egon.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_gauss.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_handgrenade.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_glock.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_hornetgun.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_mp5.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_python.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_rpg.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_satchel.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_shotgun.cpp" />
+    <ClCompile Include="..\shared\hl\skill.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_squeak.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_tripmine.cpp" />
+    <ClCompile Include="..\shared\hl\weapons.cpp" />
+    <ClCompile Include="..\shared\pm_shared\pm_debug.c" />
+    <ClCompile Include="..\shared\pm_shared\pm_math.c" />
+    <ClCompile Include="..\shared\pm_shared\pm_shared.c" />
+    <ClCompile Include="..\shared\util.cpp" />
+    <ClCompile Include="..\shared\util_aux.cpp" />
+    <ClCompile Include="..\shared\voice_gamemgr.cpp" />
+    <ClCompile Include="animating.cpp" />
+    <ClCompile Include="animation.cpp" />
+    <ClCompile Include="bmodels.cpp" />
+    <ClCompile Include="buttons.cpp" />
+    <ClCompile Include="cbase.cpp" />
+    <ClCompile Include="combat.cpp" />
+    <ClCompile Include="deadmonster.cpp" />
+    <ClCompile Include="defaultai.cpp" />
+    <ClCompile Include="doors.cpp" />
+    <ClCompile Include="effects.cpp" />
+    <ClCompile Include="explode.cpp" />
+    <ClCompile Include="flyingmonster.cpp" />
+    <ClCompile Include="func_break.cpp" />
+    <ClCompile Include="func_tank.cpp" />
+    <ClCompile Include="gamerules.cpp" />
+    <ClCompile Include="genericmonster.cpp" />
+    <ClCompile Include="globals.cpp" />
+    <ClCompile Include="hl\act_animating.cpp" />
+    <ClCompile Include="hl\baseplayerammo.cpp" />
+    <ClCompile Include="hl\baseplayeritem.cpp" />
+    <ClCompile Include="hl\baseplayerweapon.cpp" />
+    <ClCompile Include="hl\monster_barney_dead.cpp" />
+    <ClCompile Include="hl\monster_basegrunt.cpp" />
+    <ClCompile Include="hl\monster_basegrunt_repel.cpp" />
+    <ClCompile Include="hl\monster_basezombie.cpp" />
+    <ClCompile Include="hl\crossbow_bolt.cpp" />
+    <ClCompile Include="hl\env_laserspot.cpp" />
+    <ClCompile Include="hl\func_mortarfield.cpp" />
+    <ClCompile Include="hl\grenade_rocket.cpp" />
+    <ClCompile Include="hl\grenade_satchel.cpp" />
+    <ClCompile Include="hl\grenade_squeak.cpp" />
+    <ClCompile Include="hl\grenade_tripmine.cpp" />
+    <ClCompile Include="hl\hvr_rocket.cpp" />
+    <ClCompile Include="hl\item_antidote.cpp" />
+    <ClCompile Include="hl\item_battery.cpp" />
+    <ClCompile Include="hl\item_longjump.cpp" />
+    <ClCompile Include="hl\item_security.cpp" />
+    <ClCompile Include="hl\item_suit.cpp" />
+    <ClCompile Include="hl\monster_aflock.cpp" />
+    <ClCompile Include="hl\monster_agrunt.cpp" />
+    <ClCompile Include="hl\item_airtank.cpp" />
+    <ClCompile Include="hl\monster_apache.cpp" />
+    <ClCompile Include="hl\monster_barnacle.cpp" />
+    <ClCompile Include="hl\monster_barney.cpp" />
+    <ClCompile Include="hl\monster_bigmomma.cpp" />
+    <ClCompile Include="hl\monster_bloater.cpp" />
+    <ClCompile Include="hl\monster_bullsquid.cpp" />
+    <ClCompile Include="hl\hl_client.cpp" />
+    <ClCompile Include="hl\monster_controller.cpp" />
+    <ClCompile Include="hl\game.cpp" />
+    <ClCompile Include="hl\monster_gargantua.cpp" />
+    <ClCompile Include="hl\basegrenade.cpp" />
+    <ClCompile Include="hl\monster_gman.cpp" />
+    <ClCompile Include="hl\monster_hassassin.cpp" />
+    <ClCompile Include="hl\monster_headcrab.cpp" />
+    <ClCompile Include="hl\item_healthkit.cpp" />
+    <ClCompile Include="hl\monster_hgrunt.cpp" />
+    <ClCompile Include="hl\monster_hgrunt_dead.cpp" />
+    <ClCompile Include="hl\monster_hgrunt_repel.cpp" />
+    <ClCompile Include="hl\monster_hornet.cpp" />
+    <ClCompile Include="hl\monster_houndeye.cpp" />
+    <ClCompile Include="hl\h_ai.cpp" />
+    <ClCompile Include="hl\h_battery.cpp" />
+    <ClCompile Include="hl\h_cine.cpp" />
+    <ClCompile Include="hl\h_cycler.cpp" />
+    <ClCompile Include="hl\h_export.cpp" />
+    <ClCompile Include="hl\monster_ichthyosaur.cpp" />
+    <ClCompile Include="hl\monster_islave.cpp" />
+    <ClCompile Include="hl\items.cpp" />
+    <ClCompile Include="hl\monster_leech.cpp" />
+    <ClCompile Include="hl\monster_mortar.cpp" />
+    <ClCompile Include="hl\monster_scientist_dead.cpp" />
+    <ClCompile Include="hl\monster_sitting_scientist.cpp" />
+    <ClCompile Include="hl\multiplay_gamerules.cpp" />
+    <ClCompile Include="hl\monster_nihilanth.cpp" />
+    <ClCompile Include="hl\monster_osprey.cpp" />
+    <ClCompile Include="hl\monster_rat.cpp" />
+    <ClCompile Include="hl\monster_roach.cpp" />
+    <ClCompile Include="hl\monster_scientist.cpp" />
+    <ClCompile Include="hl\singleplay_gamerules.cpp" />
+    <ClCompile Include="hl\hl_stats.cpp" />
+    <ClCompile Include="hl\teamplay_gamerules.cpp" />
+    <ClCompile Include="hl\monster_tentacle.cpp" />
+    <ClCompile Include="hl\monster_turret.cpp" />
+    <ClCompile Include="hl\weaponbox.cpp" />
+    <ClCompile Include="hl\world_item.cpp" />
+    <ClCompile Include="hl\xen_hair.cpp" />
+    <ClCompile Include="hl\xen_plantlight.cpp" />
+    <ClCompile Include="hl\xen_spore.cpp" />
+    <ClCompile Include="hl\xen_tree.cpp" />
+    <ClCompile Include="hl\monster_zombie.cpp" />
+    <ClCompile Include="lights.cpp" />
+    <ClCompile Include="maprules.cpp" />
+    <ClCompile Include="monstermaker.cpp" />
+    <ClCompile Include="monsters.cpp" />
+    <ClCompile Include="monsterstate.cpp" />
+    <ClCompile Include="nodes.cpp" />
+    <ClCompile Include="observer.cpp" />
+    <ClCompile Include="pathcorner.cpp" />
+    <ClCompile Include="plane.cpp" />
+    <ClCompile Include="plats.cpp" />
+    <ClCompile Include="player.cpp" />
+    <ClCompile Include="playermonster.cpp" />
+    <ClCompile Include="schedule.cpp" />
+    <ClCompile Include="scripted.cpp" />
+    <ClCompile Include="sound.cpp" />
+    <ClCompile Include="soundent.cpp" />
+    <ClCompile Include="spectator.cpp" />
+    <ClCompile Include="squadmonster.cpp" />
+    <ClCompile Include="subs.cpp" />
+    <ClCompile Include="talkmonster.cpp" />
+    <ClCompile Include="tempmonster.cpp" />
+    <ClCompile Include="triggers.cpp" />
+    <ClCompile Include="world.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="hl\monster_barney.h" />
+    <ClInclude Include="hl\monster_basegrunt.h" />
+    <ClInclude Include="hl\monster_basezombie.h" />
+    <ClInclude Include="hl\monster_scientist.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\lib\public\mathlib.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

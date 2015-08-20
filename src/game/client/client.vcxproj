@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F43C346B-3CC5-40E7-8FE0-57DFAE79426A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>client</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>client</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>client</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CLIENT_DLL;CLIENT_WEAPONS;HL_DLL;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.\;..\;.\game_controls;.\hl;.\tfc;.\tfc\vgui;..\server\hl;..\shared;..\shared\hl;..\shared\pm_shared;..\..\common;..\..\engine;..\..\public;..\..\public\steam;..\game_controls;..\tfc;..\tfc\vgui;..\..\utils\vgui\include;..\..\vgui\vgui_controls;..\..\thirdparty;..\..\thirdparty\SDL2;..\server;..\..\game\server;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4018;4258;4996;4703;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>..\..\utils\vgui\lib\win32_vc6\vgui.lib;wsock32.lib;..\..\lib\public\sdl2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>if exist "$(TargetPath)" copy "$(TargetPath)" "..\..\..\game\mod\cl_dlls\$(TargetFileName)"</Command>
+      <Message>..\..\..\game\mod\cl_dlls</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;CLIENT_DLL;CLIENT_WEAPONS;HL_DLL;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.\;..\;.\game_controls;.\hl;.\tfc;.\tfc\vgui;..\server\hl;..\shared;..\shared\hl;..\shared\pm_shared;..\..\common;..\..\engine;..\..\public;..\..\public\steam;..\game_controls;..\tfc;..\tfc\vgui;..\..\utils\vgui\include;..\..\vgui\vgui_controls;..\..\thirdparty;..\..\thirdparty\SDL2;..\server;..\..\game\server;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4018;4258;4996;4703;</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>..\..\utils\vgui\lib\win32_vc6\vgui.lib;wsock32.lib;..\..\lib\public\sdl2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>if exist "$(TargetPath)" copy "$(TargetPath)" "..\..\..\game\mod\cl_dlls\$(TargetFileName)"</Command>
+      <Message>..\..\..\game\mod\cl_dlls</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\common\parsemsg.cpp" />
+    <ClCompile Include="..\..\public\interface.cpp" />
+    <ClCompile Include="..\shared\gamestringpool.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_crossbow.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_crowbar.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_egon.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_gauss.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_handgrenade.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_glock.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_hornetgun.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_mp5.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_python.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_rpg.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_satchel.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_shotgun.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_squeak.cpp" />
+    <ClCompile Include="..\shared\hl\weapon_tripmine.cpp" />
+    <ClCompile Include="..\shared\pm_shared\pm_debug.c" />
+    <ClCompile Include="..\shared\pm_shared\pm_math.c" />
+    <ClCompile Include="..\shared\pm_shared\pm_shared.c" />
+    <ClCompile Include="..\shared\util_aux.cpp" />
+    <ClCompile Include="..\shared\voice_banmgr.cpp" />
+    <ClCompile Include="cdll_int.cpp" />
+    <ClCompile Include="com_weapons.cpp" />
+    <ClCompile Include="death.cpp" />
+    <ClCompile Include="demo.cpp" />
+    <ClCompile Include="entity.cpp" />
+    <ClCompile Include="events.cpp" />
+    <ClCompile Include="ev_common.cpp" />
+    <ClCompile Include="GameStudioModelRenderer.cpp" />
+    <ClCompile Include="hl\ammohistory.cpp" />
+    <ClCompile Include="hl\hud_ammo.cpp" />
+    <ClCompile Include="hl\hud_ammo_secondary.cpp" />
+    <ClCompile Include="hl\hud_battery.cpp" />
+    <ClCompile Include="hl\ev_hldm.cpp" />
+    <ClCompile Include="hl\hud_flashlight.cpp" />
+    <ClCompile Include="hl\hud_geiger.cpp" />
+    <ClCompile Include="hl\hud_health.cpp" />
+    <ClCompile Include="hl\hl_baseentity.cpp" />
+    <ClCompile Include="hl\hl_events.cpp" />
+    <ClCompile Include="hl\hl_objects.cpp" />
+    <ClCompile Include="hl\hl_weapons.cpp" />
+    <ClCompile Include="hud.cpp" />
+    <ClCompile Include="hud_bench.cpp" />
+    <ClCompile Include="hud_benchtrace.cpp" />
+    <ClCompile Include="hud_msg.cpp" />
+    <ClCompile Include="hud_redraw.cpp" />
+    <ClCompile Include="hud_servers.cpp" />
+    <ClCompile Include="hud_spectator.cpp" />
+    <ClCompile Include="hud_update.cpp" />
+    <ClCompile Include="input.cpp" />
+    <ClCompile Include="inputw32.cpp" />
+    <ClCompile Include="interpolation.cpp" />
+    <ClCompile Include="in_camera.cpp" />
+    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="message.cpp" />
+    <ClCompile Include="saytext.cpp" />
+    <ClCompile Include="statusbar.cpp" />
+    <ClCompile Include="status_icons.cpp" />
+    <ClCompile Include="StudioModelRenderer.cpp" />
+    <ClCompile Include="studio_util.cpp" />
+    <ClCompile Include="text_message.cpp" />
+    <ClCompile Include="tfc\vgui\vgui_TeamFortressViewport.cpp" />
+    <ClCompile Include="train.cpp" />
+    <ClCompile Include="tri.cpp" />
+    <ClCompile Include="util.cpp" />
+    <ClCompile Include="view.cpp" />
+    <ClCompile Include="voice_status.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\lib\public\game_controls.lib" />
+    <Library Include="..\..\lib\public\mathlib.lib" />
+    <Library Include="..\..\lib\public\vgui_controls.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tfc\vgui\vgui_TeamFortressViewport.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

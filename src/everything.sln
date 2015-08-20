@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "client", "game\client\client.vcxproj", "{F43C346B-3CC5-40E7-8FE0-57DFAE79426A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{75ED4E5C-82EA-4C88-8E20-E994A423A709} = {75ED4E5C-82EA-4C88-8E20-E994A423A709}
+		{B160788D-483E-430C-BD1B-A89E8C2FB9C8} = {B160788D-483E-430C-BD1B-A89E8C2FB9C8}
+		{A2134B91-B654-49C0-8526-88952D10C815} = {A2134B91-B654-49C0-8526-88952D10C815}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "server", "game\server\server.vcxproj", "{B160788D-483E-430C-BD1B-A89E8C2FB9C8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vgui_controls", "vgui\vgui_controls\vgui_controls.vcxproj", "{75ED4E5C-82EA-4C88-8E20-E994A423A709}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_controls", "game\client\game_controls\game_controls.vcxproj", "{A2134B91-B654-49C0-8526-88952D10C815}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mathlib", "mathlib\mathlib.vcxproj", "{B5F251C8-88A8-42F6-A06B-E5087C667F26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F43C346B-3CC5-40E7-8FE0-57DFAE79426A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F43C346B-3CC5-40E7-8FE0-57DFAE79426A}.Debug|Win32.Build.0 = Debug|Win32
+		{F43C346B-3CC5-40E7-8FE0-57DFAE79426A}.Release|Win32.ActiveCfg = Release|Win32
+		{F43C346B-3CC5-40E7-8FE0-57DFAE79426A}.Release|Win32.Build.0 = Release|Win32
+		{B160788D-483E-430C-BD1B-A89E8C2FB9C8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B160788D-483E-430C-BD1B-A89E8C2FB9C8}.Debug|Win32.Build.0 = Debug|Win32
+		{B160788D-483E-430C-BD1B-A89E8C2FB9C8}.Release|Win32.ActiveCfg = Release|Win32
+		{B160788D-483E-430C-BD1B-A89E8C2FB9C8}.Release|Win32.Build.0 = Release|Win32
+		{75ED4E5C-82EA-4C88-8E20-E994A423A709}.Debug|Win32.ActiveCfg = Debug|Win32
+		{75ED4E5C-82EA-4C88-8E20-E994A423A709}.Debug|Win32.Build.0 = Debug|Win32
+		{75ED4E5C-82EA-4C88-8E20-E994A423A709}.Release|Win32.ActiveCfg = Release|Win32
+		{75ED4E5C-82EA-4C88-8E20-E994A423A709}.Release|Win32.Build.0 = Release|Win32
+		{A2134B91-B654-49C0-8526-88952D10C815}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A2134B91-B654-49C0-8526-88952D10C815}.Debug|Win32.Build.0 = Debug|Win32
+		{A2134B91-B654-49C0-8526-88952D10C815}.Release|Win32.ActiveCfg = Release|Win32
+		{A2134B91-B654-49C0-8526-88952D10C815}.Release|Win32.Build.0 = Release|Win32
+		{B5F251C8-88A8-42F6-A06B-E5087C667F26}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B5F251C8-88A8-42F6-A06B-E5087C667F26}.Debug|Win32.Build.0 = Debug|Win32
+		{B5F251C8-88A8-42F6-A06B-E5087C667F26}.Release|Win32.ActiveCfg = Release|Win32
+		{B5F251C8-88A8-42F6-A06B-E5087C667F26}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
